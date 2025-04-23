@@ -45,31 +45,31 @@ const reviews = [
 ]
 
 const ReviewCard = ({ name, image, text }) => (
-  <div className="text-center bg-white p-4 rounded-lg shadow-md h-full flex flex-col">
-    <div className="w-24 h-24 mx-auto mb-4">
+  <div className="text-center bg-white p-6 rounded-xl h-full flex flex-col">
+    <div className="w-24 h-24 mx-auto mb-6">
       <img
         src={image}
         alt={name}
         className="w-full h-full object-cover rounded-full"
       />
     </div>
-    <div className="flex justify-center mb-2">
+    <div className="flex justify-center mb-3">
       {Array.from({ length: 5 }).map((_, i) => (
-        <span key={i} className="text-blue-600">★</span>
+        <span key={i} className="text-blue-600 text-lg">★</span>
       ))}
     </div>
-    <h3 className="font-semibold text-xl mb-3">{name}</h3>
-    <p className="text-gray-600">{text}</p>
+    <h3 className="font-semibold text-xl mb-4">{name}</h3>
+    <p className="text-gray-600 leading-relaxed">{text}</p>
   </div>
 )
 
 const TestimonialsSection = () => (
-  <section id="testimonials" className="py-16 px-4 max-w-7xl mx-auto">
-    <div className="text-center mb-12">
-      <h2 className="text-3xl md:text-4xl font-bold mb-4">
+  <section id="testimonials" className="py-20 px-8 max-w-6xl mx-auto">
+    <div className="text-center mb-16">
+      <h2 className="text-3xl md:text-4xl font-bold mb-6">
         What our happy client say
       </h2>
-      <p className="text-gray-600">
+      <p className="text-gray-600 max-w-2xl mx-auto">
         Things that make it the best place to start trading
       </p>
     </div>
@@ -77,7 +77,7 @@ const TestimonialsSection = () => (
     <div className="relative">
       <Swiper
         modules={[Navigation]}
-        spaceBetween={30}
+        spaceBetween={20}
         navigation={{
           prevEl: '.swiper-button-prev-custom',
           nextEl: '.swiper-button-next-custom',
@@ -87,20 +87,20 @@ const TestimonialsSection = () => (
           768: { slidesPerView: 2 },
           1024: { slidesPerView: 3 },
         }}
-        className="testimonials-swiper md:mb-12"
+        className="md:mb-12"
       >
         {reviews.map(item => (
-          <SwiperSlide key={item.id} className="h-full md:py-12 py-4">
+          <SwiperSlide key={item.id} className="h-full md:py-10 py-6">
             <ReviewCard {...item} />
           </SwiperSlide>
         ))}
       </Swiper>
 
-      <div className="flex justify-center gap-4 mt-8">
-        <button className="swiper-button-prev-custom w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-blue-500 hover:text-white transition-colors">
+      <div className="flex justify-center gap-10 mt-10">
+        <button className="swiper-button-prev-custom w-14 h-14 rounded-full border border-gray-300 flex items-center justify-center hover:bg-blue-500 hover:text-white transition">
           <BsChevronLeft className="w-6 h-6" />
         </button>
-        <button className="swiper-button-next-custom w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-blue-500 hover:text-white transition-colors">
+        <button className="swiper-button-next-custom w-14 h-14 rounded-full border border-gray-300 flex items-center justify-center hover:bg-blue-500 hover:text-white transition">
           <BsChevronRight className="w-6 h-6" />
         </button>
       </div>
@@ -109,3 +109,4 @@ const TestimonialsSection = () => (
 )
 
 export default TestimonialsSection
+  
