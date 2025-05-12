@@ -1,93 +1,47 @@
 import React from 'react'
-import { FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa'
+import insta1 from '../assets/instagram-1.jpg'
+import insta2 from '../assets/instagram-2.jpg'
+import insta3 from '../assets/instagram-3.jpg'
+import insta4 from '../assets/instagram-4.jpg'
+import insta5 from '../assets/instagram-5.jpg'
+import insta6 from '../assets/instagram-6.jpg'
 
-const Footer = () => {
-  const footerLinks = {
-    company: [
-      { name: 'About', href: '#' },
-      { name: 'Terms of Use', href: '#' },
-      { name: 'Privacy Policy', href: '#' },
-      { name: 'How it Works', href: '#' },
-      { name: 'Contact Us', href: '#' },
-    ],
-    getHelp: [
-      { name: 'Support Carrer', href: '#' },
-      { name: '24h Service', href: '#' },
-      { name: 'Quick Chat', href: '#' },
-    ],
-    support: [
-      { name: 'FAQ', href: '#' },
-      { name: 'Policy', href: '#' },
-      { name: 'Business', href: '#' },
-    ],
-    contact: [
-      { name: 'WhatsApp', href: '#' },
-      { name: 'Support 24', href: '#' },
-    ],
-  }
-
+export default function Footer() {
   return (
-    <footer className="bg-gray-50">
-      <div className="section-container">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
-          {/* Brand Column */}
-          <div className="lg:col-span-4">
-            <div className="flex items-center gap-1 mb-6">
-              <div className="w-4 h-4 bg-blue-600 rounded-full opacity-75"></div>
-              <div className="w-4 h-4 bg-red-500 rounded-full -ml-2"></div>
-              <span className="text-xl font-medium ml-1">The Next Design</span>
-            </div>
-            <p className="text-gray-600 mb-6">
-              The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times.
-            </p>
-            <div className="flex gap-4">
-              <a 
-                href="#" 
-                className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-blue-600 hover:text-white transition-colors"
-              >
-                <FaFacebookF className="w-5 h-5" />
-              </a>
-              <a 
-                href="#" 
-                className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-blue-400 hover:text-white transition-colors"
-              >
-                <FaTwitter className="w-5 h-5" />
-              </a>
-              <a 
-                href="#" 
-                className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-blue-700 hover:text-white transition-colors"
-              >
-                <FaLinkedinIn className="w-5 h-5" />
-              </a>
-            </div>
-          </div>
-          <div className="lg:col-span-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {Object.entries(footerLinks).map(([category, links]) => (
-                <div key={category}>
-                  <h3 className="text-lg font-medium mb-4">
-                    {category.charAt(0).toUpperCase() + category.slice(1)}
-                  </h3>
-                  <ul className="space-y-3">
-                    {links.map((link, index) => (
-                      <li key={index}>
-                        <a 
-                          href={link.href} 
-                          className="text-gray-600 hover:text-gray-900"
-                        >
-                          {link.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
+    <>
+      <footer className="max-w-screen-xl mx-auto px-4 py-20 grid md:grid-cols-4 gap-12">
+        <div>
+          <h4 className="text-lg font-extrabold font-serif text-slate-900 mb-6">CONTACT INFO</h4>
+          <p className="text-slate-500 mb-3"><span className="text-[#ed3849] mr-2">📍</span>36/25 Street, Track Market, Guwahati, Assam</p>
+          <p className="text-slate-500 mb-3"><span className="text-[#ed3849] mr-2">📧</span>support@Lebaba.com</p>
+          <p className="text-slate-500"><span className="text-[#ed3849] mr-2">📞</span>(+91) 93456 79889</p>
+        </div>
+        <div>
+          <h4 className="text-lg font-extrabold font-serif text-slate-900 mb-6">COMPANY</h4>
+          <a href="#" className="block text-slate-500 hover:text-[#ed3849] mb-2">Home</a>
+          <a href="#" className="block text-slate-500 hover:text-[#ed3849] mb-2">About Us</a>
+          <a href="#" className="block text-slate-500 hover:text-[#ed3849] mb-2">Work With Us</a>
+          <a href="#" className="block text-slate-500 hover:text-[#ed3849] mb-2">Our Blog</a>
+          <a href="#" className="block text-slate-500 hover:text-[#ed3849]">Terms & Conditions</a>
+        </div>
+        <div>
+          <h4 className="text-lg font-extrabold font-serif text-slate-900 mb-6">USEFUL LINK</h4>
+          <a href="#" className="block text-slate-500 hover:text-[#ed3849] mb-2">Help</a>
+          <a href="#" className="block text-slate-500 hover:text-[#ed3849] mb-2">Track My Order</a>
+          <a href="#" className="block text-slate-500 hover:text-[#ed3849] mb-2">Men</a>
+          <a href="#" className="block text-slate-500 hover:text-[#ed3849] mb-2">Women</a>
+          <a href="#" className="block text-slate-500 hover:text-[#ed3849]">Dresses</a>
+        </div>
+        <div>
+          <h4 className="text-lg font-extrabold font-serif text-slate-900 mb-6">INSTAGRAM</h4>
+          <div className="grid grid-cols-3 gap-2">
+            {[insta1, insta2, insta3, insta4, insta5, insta6].map((img, i) => (
+              <img key={i} src={img} alt={`insta-${i}`} className="w-full h-20 object-cover rounded" />
+            ))}
           </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+      <div className="text-center py-4 text-sm text-slate-400 border-t">Copyright © 2024. All rights reserved.</div>
+    </>
   )
 }
-
-export default Footer
