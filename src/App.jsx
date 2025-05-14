@@ -1,5 +1,5 @@
 import './App.css'
-import React from 'react';
+import React, { useState } from 'react';
 import NavBar from './components/NavBar'
 // import Hero from './components/Hero'
 // import CompanyLogo from './components/CompanyLogo'
@@ -15,8 +15,19 @@ import NavBar from './components/NavBar'
 import Upper from './components/Upper'
 import Categories from './components/Categories';
 import ProductGrid from './components/ProductGrid';
+import LoginScreen from './components/LoginScreen';
 
 function App() {
+  const [showLogin, setShowLogin] = useState(false);
+
+  const handleLoginClick = () => {
+    setShowLogin(true);
+  };
+
+  const handleCloseLogin = () => {
+    setShowLogin(false);
+  };
+
   return (
     <main className="relative min-h-screen overflow-x-hidden">
         {/* <Navbar />
@@ -31,10 +42,11 @@ function App() {
         <TestimonialsSection />
         <NewsletterSection />
         <Footer /> */}
-        <NavBar/>
+        <NavBar onLoginClick={handleLoginClick}/>
         <Upper/>
         <Categories/>
         <ProductGrid/>
+        {showLogin && <LoginScreen onClose={handleCloseLogin} />}
     </main>
   )
 }
