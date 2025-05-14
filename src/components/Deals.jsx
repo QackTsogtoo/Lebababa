@@ -2,31 +2,46 @@ import React, { useEffect, useState } from 'react'
 import dealsImg from '../assets/deals.png'
 
 export default function Deals() {
-  const calculateTimeLeft = () => {
+  // Set a fixed target date 10 days from now (only set once when component mounts)
+  const [targetDate] = useState(() => {
     const target = new Date()
     target.setDate(target.getDate() + 10)
-    const now = new Date()
-    const difference = target - now
+    // Set time to end of the day
+    target.setHours(23, 59, 59, 999)
+    return target
+  })
 
-    const timeLeft = {
+  const calculateTimeLeft = () => {
+    const now = new Date()
+    const difference = targetDate - now
+
+    if (difference <= 0) {
+      return { days: 0, hours: 0, minutes: 0, seconds: 0 }
+    }
+
+    return {
       days: Math.floor(difference / (1000 * 60 * 60 * 24)),
       hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
       minutes: Math.floor((difference / 1000 / 60) % 60),
       seconds: Math.floor((difference / 1000) % 60),
     }
-
-    return difference > 0 ? timeLeft : { days: 0, hours: 0, minutes: 0, seconds: 0 }
   }
 
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft())
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft())
+      const newTimeLeft = calculateTimeLeft()
+      setTimeLeft(newTimeLeft)
+
+      // Clear interval when countdown reaches zero
+      if (Object.values(newTimeLeft).every(value => value === 0)) {
+        clearInterval(timer)
+      }
     }, 1000)
 
     return () => clearInterval(timer)
-  }, [])
+  }, [targetDate]) // Add targetDate as dependency
 
   return (
     <section className="bg-[#f4e5ec] rounded-2xl max-w-screen-xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
