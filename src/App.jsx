@@ -16,6 +16,9 @@ import Upper from './components/Upper'
 import Categories from './components/Categories';
 import ProductGrid from './components/ProductGrid';
 import LoginScreen from './components/LoginScreen';
+import Deals from './components/Deals';
+import Blog from './components/Blog';
+import Banner from './components/Banner';
 
 function App() {
   const [showLogin, setShowLogin] = useState(false);
@@ -46,6 +49,9 @@ function App() {
         <Upper/>
         <Categories/>
         <ProductGrid/>
+        <Deals/>
+        <Banner/>
+        <Blog/>
         {showLogin && <LoginScreen onClose={handleCloseLogin} />}
     </main>
   )
